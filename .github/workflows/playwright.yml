@@ -25,6 +25,14 @@ jobs:
       - name: Run Playwright Tests
         run: npx playwright test
 
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          LOGIN_PATH: ${{ secrets.LOGIN_PATH }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          HTTP_AUTH_USERNAME: ${{ secrets.HTTP_AUTH_USERNAME }}
+          HTTP_AUTH_PASSWORD: ${{ secrets.HTTP_AUTH_PASSWORD }}
+
       - name: Upload Report
         uses: actions/upload-artifact@v4
         if: always()
